@@ -1,0 +1,18 @@
+{
+  "imports": {
+    "@/": "./src/",
+    "@hono/zod-validator": "npm:@hono/zod-validator@^0.7.5",
+    "@upstash/redis": "npm:@upstash/redis@^1.35.7",
+    "hono": "jsr:@hono/hono@^4.10.8",
+    "nanoid": "npm:nanoid@^5.1.6",
+    "pusher": "npm:pusher@^5.2.0",
+    "zod": "npm:zod@^4.1.13"
+  },
+  "tasks": {
+    "dev": "deno run --watch-hmr --allow-net --env --allow-env main.js"
+  },
+  "compilerOptions": {
+    "jsx": "precompile",
+    "jsxImportSource": "hono/jsx"
+  }
+}
