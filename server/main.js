@@ -3,6 +3,7 @@ import { Hono } from "hono";
 // Routes
 import { authRoute, authValidator } from "@/routes/auth.js";
 import { joinRoute, joinValidator } from "@/routes/join.js";
+import { webhookRoute } from "@/routes/webhook.js";
 
 const app = new Hono();
 
@@ -14,9 +15,6 @@ app.get("api", (c) =>
 
 app.post("api/auth", authValidator, authRoute);
 app.post("api/join", joinValidator, joinRoute);
-
-app.post("api/webhook", (c) => {
-  return c.json({});
-});
+app.post("api/webhook", webhookRoute);
 
 Deno.serve(app.fetch);

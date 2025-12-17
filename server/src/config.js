@@ -1,7 +1,7 @@
 import z from "zod";
 
 const envSchema = z.object({
-  DENO_ENV: z.string(),
+  DENO_ENV: z.string().optional(),
   SESSION_SECRET: z.string(),
   SESSION_EXPIRATION: z.string().transform(Number),
   CONCURRENT_CONNECTIONS: z.string().transform(Number),

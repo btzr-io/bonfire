@@ -11,7 +11,7 @@ export const pusher = new Pusher({
   appId: ENV.PUSHER_APP_ID,
   cluster: ENV.PUSHER_CLUSTER,
   secret: ENV.PUSHER_SECRET,
-  useTLS: ENV.DENO_ENV == "production",
+  useTLS: true,
 });
 
 export const webhookRequest = async (req) => {
@@ -19,7 +19,7 @@ export const webhookRequest = async (req) => {
     rawBody: await req.text(),
     headers: {},
   };
-  const reqHeaders = new Headers(req.headers);
+  const reqHeaders = new Headers(req.header());
   reqHeaders.set("content-type", "application/json");
   reqHeaders.forEach((value, key) => {
     request.headers[key] = value;
